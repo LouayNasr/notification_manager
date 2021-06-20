@@ -3,6 +3,7 @@ package com.example.jobschedulerservicebroadcast;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -36,6 +37,7 @@ public class MyWorker extends Worker {
                 .setContentText(task)
                 .setSmallIcon(R.mipmap.ic_launcher);
 
-        notificationManager.notify(1, notification.build());
+        int randomId = (int) System.currentTimeMillis();
+        notificationManager.notify(randomId, notification.build());
     }
 }
